@@ -2,16 +2,18 @@ name: build-latex
 
 on:
   push:
-    branches:
-    - main
+    tags:
+      - "v*.*.*"
 
 jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
+      - name: Release
+        uses: softprops/action-gh-release@v2
