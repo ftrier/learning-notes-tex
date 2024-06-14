@@ -1,12 +1,14 @@
 \section{Yolo You Only Look Once}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{images/yolo/grid.png}
-  \caption{Image Grid}
-\end{figure}
-
 \subsection{YoloV1}
+
+\begin{wrapfigure}{r}{0.3\textwidth}
+  \centering
+  \includegraphics[width=0.3\textwidth]{images/yolo/grid.png}
+  \caption{Image Grid}
+\end{wrapfigure}
+
+
 \begin{itemize}
   \item Grid Division: YoloV1 divides the input image into an SxS grid. For each grid cell, the model predicts B bounding boxes and confidence scores for those boxes. These scores reflect how confident the model is that the box contains an object and also how accurate it thinks the box is that it predicts.
   \item Bounding Box Prediction: Each bounding box consists of 5 predictions - x, y, w, h, and confidence. The (x, y) coordinates represent the center of the box relative to the bounds of the grid cell. The width and height (w and h) are predicted relative to the whole image. Finally, confidence prediction represents the Intersection over Union (IoU) between the predicted box and any ground truth box.
