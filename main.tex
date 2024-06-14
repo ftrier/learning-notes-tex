@@ -1,0 +1,58 @@
+\documentclass[a4paper]{article}
+
+\usepackage[letterpaper,top=1cm,bottom=1cm,left=1cm,right=1cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{float}
+
+\usepackage{todonotes}
+\usepackage{hyperref}
+\usepackage{tikz}
+
+\title{Learning Notes}
+\author{Felix}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Timeline}
+
+\begin{center}
+  \begin{tikzpicture}
+    \node[align=left, draw] (FasterRCNN) at (0,0) {Faster R-CNN\\2016};
+    \node[align=left, draw] (RCNN) at (-3,-1.5) {R-CNN\\2014};
+    \node[align=left, draw] (FRCNN) at (0,-1.5) {Fast R-CNN\\2015};
+    \node[align=left, draw] (Y1) at (3,-3) {Yolov1\\2016};
+    \node[align=left, draw] (Y2) at (6,-3) {Yolov2\\2017\\Multi Scale};
+    \node[align=left, draw] (Y3) at (6,-4.5) {Yolov3\\2018\\Darknet-53};
+    \node[align=left, draw] (MRCNN) at (3,-4.5) {Mask R-CNN\\2017\\Segmentation Mask};
+    \node[align=left, draw] (Y4) at (3,-6) {Yolov4\\2020\\Mish Activation};
+    \node[align=left, draw] (Y5) at (0,-7.5) {Yolov5\\2020\\Anchor Free};
+    \node[align=left, draw] (Y6) at (0,-9) {Yolov6\\2022\\Anchor Scale Augmentation};
+    \node[align=left, draw] (Y7) at (0,-10.5) {Yolov7\\2022};
+    \node[align=left, draw] (Y8) at (0,-12) {Yolov8\\2023};
+    \node[align=left, draw] (Y9) at (0,-13.5) {Yolov9\\2024\\Gelan Network};
+
+    \draw[->] (RCNN) -- (FRCNN);
+    \draw[->] (FRCNN) -- (FasterRCNN);
+    \draw[->] (FasterRCNN) -- (Y1);
+    \draw[->] (Y1) -- (Y2);
+    \draw[->] (Y2) -- (Y3);
+    \draw[->] (Y2) -- (MRCNN);
+    \draw[->] (MRCNN) -- (Y4);
+    \draw[->] (Y3) -- (Y4);
+    \draw[->] (Y4) -- (Y5);
+    \draw[->] (Y5) -- (Y6);
+    \draw[->] (Y6) -- (Y7);
+    \draw[->] (Y7) -- (Y8);
+    \draw[->] (Y8) -- (Y9);
+  \end{tikzpicture}
+\end{center}
+
+\input{faster-r-cnn}
+\input{yolo}
+
+
+\end{document}
