@@ -1,0 +1,14 @@
+\section{Real-Time DEtection TRansformer (RT-DETR)}
+RT-DETR (Real-Time DEtection TRansformer) is a variant of the DETR (DEtection TRansformer) model, which is designed for real-time object detection tasks. DETR is a transformer-based model that treats object detection as a direct set prediction problem, which is a departure from the traditional two-stage process (region proposal and classification) used by models like Faster R-CNN.
+
+\begin{itemize}
+  \item Feature Extraction: RT-DETR uses a CNN backbone (like ResNet) to extract feature maps from the input image.
+
+  \item Transformer Encoder: The feature maps are flattened and passed through a transformer encoder. The transformer encoder captures the global context of the image, which helps in detecting objects that are spread across the image.
+
+  \item Bipartite Matching: DETR uses a novel loss function called the bipartite matching loss. This loss function matches the predicted objects with the ground truth objects in a one-to-one manner, minimizing the cost of incorrect matches.
+
+  \item Transformer Decoder: The transformer decoder takes the output of the transformer encoder and the object queries (which represent potential objects in the image) as input, and outputs the final bounding boxes and class labels for the detected objects.
+\end{itemize}
+
+The key difference between RT-DETR and DETR is that RT-DETR is designed to be faster and more efficient, making it suitable for real-time object detection tasks. It achieves this by using techniques like feature pyramid networks for feature extraction, and reducing the number of object queries and transformer layers.
