@@ -21,21 +21,22 @@
 \section{Timeline}
 
 \begin{center}
-  \begin{tikzpicture}
-    \node[align=left, draw] (FasterRCNN) at (0,0) {Faster R-CNN\\2016};
-    \node[align=left, draw] (RCNN) at (-3,-1.5) {R-CNN\\2014};
-    \node[align=left, draw] (FRCNN) at (0,-1.5) {Fast R-CNN\\2015};
-    \node[align=left, draw] (Y1) at (3,-3) {Yolov1\\2016};
-    \node[align=left, draw] (Y2) at (6,-3) {Yolov2\\2017\\Multi Scale};
-    \node[align=left, draw] (Y3) at (6,-4.5) {Yolov3\\2018\\Darknet-53};
-    \node[align=left, draw] (MRCNN) at (3,-4.5) {Mask R-CNN\\2017\\Segmentation Mask};
-    \node[align=left, draw] (Y4) at (3,-6) {Yolov4\\2020\\Mish Activation};
-    \node[align=left, draw] (Y5) at (0,-7.5) {Yolov5\\2020\\Anchor Free};
-    \node[align=left, draw] (Y6) at (0,-9) {Yolov6\\2022\\Anchor Scale Augmentation};
-    \node[align=left, draw] (Y7) at (0,-10.5) {Yolov7\\2022};
-    \node[align=left, draw] (Y8) at (0,-12) {Yolov8\\2023};
-    \node[align=left, draw] (Y9) at (0,-13.5) {Yolov9\\2024\\Gelan Network};
-
+  \begin{tikzpicture}[node distance=1]
+    \node[align=left, draw] (RCNN) {R-CNN\\2014};
+    \node[align=left, draw] (FRCNN)[right=of RCNN]{Fast R-CNN\\2015};
+    \node[align=left, draw] (FasterRCNN)[right=of FRCNN] {Faster R-CNN\\2016};
+    \node[align=left, draw] (Y1)[right=of FasterRCNN]  {Yolov1\\2016};
+    \node[align=left, draw] (Y2)[below=of Y1]  {Yolov2\\2017\\Multi Scale};
+    \node[align=left, draw] (Y3)[below=of Y2]  {Yolov3\\2018\\Darknet-53};
+    \node[align=left, draw] (MRCNN)[left=of Y2]  {Mask R-CNN\\2017\\Segmentation Mask};
+    \node[align=left, draw] (Y4)[below=of MRCNN] {Yolov4\\2020\\Mish Activation};
+    \node[align=left, draw] (Y5)[below=of Y4]  {Yolov5\\2020\\Anchor Free};
+    \node[align=left, draw] (Y6)[right=of Y5]{Yolov6\\2022\\Anchor Scale Augmentation};
+    \node[align=left, draw] (Y7)[right=of Y6] {Yolov7\\2022};
+    \node[align=left, draw] (Y8)[below=of Y7] {Yolov8\\2023};
+    \node[align=left, draw] (Y9)[below=of Y8] {Yolov9\\2024\\Gelan Network};
+    \node[align=left, draw] (RTDETR)[left=of Y8] {RT-DETR\\2023\\Real Time DETR};
+    \node[align=left, draw] (Y10)[left=of Y9] {Yolov10\\2024\\No NMS};
     \draw[->] (RCNN) -- (FRCNN);
     \draw[->] (FRCNN) -- (FasterRCNN);
     \draw[->] (FasterRCNN) -- (Y1);
@@ -49,6 +50,9 @@
     \draw[->] (Y6) -- (Y7);
     \draw[->] (Y7) -- (Y8);
     \draw[->] (Y8) -- (Y9);
+    \draw[->] (Y8) -- (RTDETR);
+    \draw[->] (Y9) -- (Y10);
+    \draw[->] (RTDETR) -- (Y10);
   \end{tikzpicture}
 \end{center}
 
